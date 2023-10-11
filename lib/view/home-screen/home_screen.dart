@@ -8,10 +8,36 @@ import 'package:task/view/widgets/appbar_widget.dart';
 import 'package:task/view/widgets/drawer_widget.dart';
 import '../widgets/time-table/time_table_widget.dart';
 import '../widgets/week_days_row.dart';
-class HomeScreen extends StatelessWidget {
-  HomeScreenController homeScreenController = Get.put(HomeScreenController());
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+class HomeScreen extends StatefulWidget {
+
+
    HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  HomeScreenController homeScreenController = Get.put(HomeScreenController());
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  DateTime focusedDay = DateTime.now();
+  DateTime focusDay = DateTime.now();
+
+  DateTime firstDay = DateTime.utc(1990,01,01);
+
+  DateTime lastDay = DateTime.utc(2050,01,01);
+
+
+  DateTime? _rangeEnd;
+
+  void onRangeSelected(DateTime? start, DateTime? end,DateTime? focusDay){
+  setState(() {
+   // focusedDay = focusDay!;
+    _rangeEnd = end;
+  });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +59,9 @@ class HomeScreen extends StatelessWidget {
 
             /// buttons row
 
-            WeekDaysRowWidget(),
+          //  WeekDaysRowWidget(),
 
-             SizedBox(height: 20.h,),
+          //   SizedBox(height: 20.h,),
 
 
             ///     CALENDER
@@ -60,54 +86,60 @@ class HomeScreen extends StatelessWidget {
                 ),
            // shouldFillViewport: true,
                 daysOfWeekVisible: true,
-                  focusedDay: DateTime.now(),
-                  firstDay:DateTime(1990,01,01) ,
-                  lastDay:DateTime(2050,01,01)
+                  focusedDay: focusedDay,
+                  firstDay: firstDay ,
+                  lastDay:lastDay,
+                rangeStartDay: focusedDay,
+                rangeEndDay: _rangeEnd,
+                onRangeSelected: onRangeSelected,
+                rangeSelectionMode: RangeSelectionMode.toggledOn,
+
+
               ),
             ),
             const SizedBox(height: 20,),
 
-
-            Text('Upcoming',style: GoogleFonts.nunito(
-                color: const Color(0xff1A1926),fontSize: 28.sp,
-                fontWeight: FontWeight.w700
-            )),
-
-         /// Upcoming Events
-
-         Expanded(
-           child:  ListView(
-             children: const [
-               TimeTableWidget(
-                 time1: '07:00',
-                 time2: "07:30",
-                 time3: '08:00',
-                 heading: 'Soccer Practice',
-                 subtitle: 'Design',
-                 barColor: Colors.orange,
-                 time: '07:00',
-               ),
-               TimeTableWidget(
-                 time1: '08:30',
-                 time2: "09:00",
-                 time3: '09:30',
-                 heading: 'Grocery Shopping',
-                 subtitle: 'Coding',
-                 barColor: Colors.green,
-                 time: '08:30',
-               ),
-               TimeTableWidget(
-                 time1: '08:30',
-                 time2: "09:00",
-                 time3: '09:30',
-                 heading: 'Dentist Appt',
-                 subtitle: 'Meeting',
-                 barColor: Colors.purple,
-                 time: '08:30',
-               ),
-             ],
-           ),
-         )
+         //
+         //    Text('Upcoming',style: GoogleFonts.nunito(
+         //        color: const Color(0xff1A1926),fontSize: 28.sp,
+         //        fontWeight: FontWeight.w700
+         //    )),
+         //
+         // /// Upcoming Events
+         //
+         // Expanded(
+         //   child:  ListView(
+         //     children: const [
+         //       TimeTableWidget(
+         //         time1: '07:00',
+         //         time2: "07:30",
+         //         time3: '08:00',
+         //         heading: 'Soccer Practice',
+         //         subtitle: 'Design',
+         //         barColor: Colors.orange,
+         //         time: '07:00',
+         //       ),
+         //       TimeTableWidget(
+         //         time1: '08:30',
+         //         time2: "09:00",
+         //         time3: '09:30',
+         //         heading: 'Grocery Shopping',
+         //         subtitle: 'Coding',
+         //         barColor: Colors.green,
+         //         time: '08:30',
+         //       ),
+         //       TimeTableWidget(
+         //         time1: '08:30',
+         //         time2: "09:00",
+         //         time3: '09:30',
+         //         heading: 'Dentist Appt',
+         //         subtitle: 'Meeting',
+         //         barColor: Colors.purple,
+         //         time: '08:30',
+         //       ),
+         //     ],
+         //   ),
+         // )
           ],
         ),
       ),

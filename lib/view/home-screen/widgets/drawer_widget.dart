@@ -74,7 +74,7 @@ Widget calenders({required Color color,required String txt}){
               color: color
           ),
         ),
-        SizedBox(width: 10,),
+        const SizedBox(width: 10,),
         Text(txt,style: GoogleFonts.nunito(
           fontWeight: FontWeight.w400,
           fontSize: 14.sp,

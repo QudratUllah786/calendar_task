@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../utils/images/images_class.dart';
+import '../../../utils/images/images_class.dart';
+
 
 class AppBarWidget extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
