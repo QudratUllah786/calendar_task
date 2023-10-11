@@ -19,7 +19,6 @@ class HomeScreenController extends GetxController {
   ///
 
   void onRangeSelected(DateTime? start, DateTime? end, DateTime? focusDay) {
-    focusedDay = DateTime.now();
     _rangeEnd = focusDay;
     update();
     log('range:${rangeEnd?.toString()}');
