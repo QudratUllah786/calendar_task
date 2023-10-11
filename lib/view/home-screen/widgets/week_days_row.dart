@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:task/controller/home_screen_controller.dart';
-class WeekDaysRowWidget extends StatelessWidget {
-  HomeScreenController homeScreenController = Get.find<HomeScreenController>();
-   WeekDaysRowWidget({Key? key}) : super(key: key);
+class WeekDaysRowWidget extends GetView<HomeScreenController> {
+   const WeekDaysRowWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return     Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Obx(
               ()=> Container(
-            padding: EdgeInsets.all(2),
+            padding: const EdgeInsets.all(2),
             height: 50.h,
             width: MediaQuery.of(context).size.width*0.75.w,
             decoration: BoxDecoration(
-              color: Color(0xffE8EAED),
+              color: const Color(0xffE8EAED),
               borderRadius: BorderRadius.circular(15.r),
             ),
             child: Row(
@@ -29,16 +28,15 @@ class WeekDaysRowWidget extends StatelessWidget {
 
                 InkWell(
                   onTap: (){
-                    homeScreenController.onTapFirst.value = true;
-                    homeScreenController.onTapSecond.value = false;
-                    homeScreenController.onTapThird.value = false;
+                    controller.onTapFirst.value = true;
+                    controller.onTapSecond.value = false;
+                    controller.onTapThird.value = false;
                   },
                   child: Container(
-                    child: const Text('Month'),
                     width: MediaQuery.of(context).size.width*0.2,
                     alignment: Alignment.center,
                     height: 48,
-                    decoration: homeScreenController.onTapFirst.value == true? BoxDecoration(
+                    decoration: controller.onTapFirst.value == true? BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16.r),
                         boxShadow: const [
@@ -49,6 +47,7 @@ class WeekDaysRowWidget extends StatelessWidget {
                           )
                         ]
                     ):const BoxDecoration(),
+                    child: const Text('Month'),
                   ),
                 ),
                 Container(
@@ -63,14 +62,14 @@ class WeekDaysRowWidget extends StatelessWidget {
 
                 InkWell(
                   onTap: (){
-                    homeScreenController.onTapFirst.value = false;
-                    homeScreenController.onTapSecond.value = true;
-                    homeScreenController.onTapThird.value = false;
+                    controller.onTapFirst.value = false;
+                    controller.onTapSecond.value = true;
+                    controller.onTapThird.value = false;
                   },
                   child: Container(width: MediaQuery.of(context).size.width*0.2,
                     alignment: Alignment.center,
                     height: 48,
-                    decoration:homeScreenController.onTapSecond.value == true? BoxDecoration(
+                    decoration:controller.onTapSecond.value == true? BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16.r),
                         boxShadow: const [
@@ -80,14 +79,14 @@ class WeekDaysRowWidget extends StatelessWidget {
                               blurRadius: 5
                           )
                         ]
-                    ):BoxDecoration(),child: const Text('Week'),
+                    ):const BoxDecoration(),child: const Text('Week'),
                   ),
                 ),
 
                 Container(
                   width: 1,
                   height: 30,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.grey
                   ),
                 ),
@@ -97,16 +96,14 @@ class WeekDaysRowWidget extends StatelessWidget {
                 InkWell(
 
                   onTap: (){
-                    homeScreenController.onTapFirst.value = false;
-                    homeScreenController.onTapSecond.value = false;
-                    homeScreenController.onTapThird.value = true;
+                    controller.onTapFirst.value = false;
+                    controller.onTapSecond.value = false;
+                    controller.onTapThird.value = true;
                   },
-                  child: Container(child: Text('Day'),
-
-                    width: MediaQuery.of(context).size.width*0.2,
+                  child: Container(width: MediaQuery.of(context).size.width*0.2,
                     alignment: Alignment.center,
                     height: 48,
-                    decoration: homeScreenController.onTapThird.value == true? BoxDecoration(
+                    decoration: controller.onTapThird.value == true? BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16.r),
                         boxShadow: const [
@@ -116,7 +113,7 @@ class WeekDaysRowWidget extends StatelessWidget {
                               blurRadius: 5
                           )
                         ]
-                    ):const BoxDecoration(),
+                    ):const BoxDecoration(),child: const Text('Day'),
                   ),
                 ),
               ],

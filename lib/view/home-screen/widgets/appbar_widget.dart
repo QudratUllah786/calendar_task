@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,15 +7,15 @@ import '../../../utils/images/images_class.dart';
 
 class AppBarWidget extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
-   AppBarWidget({Key? key,required this.scaffoldKey}) : super(key: key);
+   const AppBarWidget({Key? key,required this.scaffoldKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(4.0),
+        preferredSize:  Size.fromHeight(4.0.h),
         child: Container(
-          color: Color(0xffF1F3F7CC),
+          color: const Color(0xffF1F3F7CC),
           height: 1.0,
         ),
       ),
@@ -55,7 +54,7 @@ class AppBarWidget extends StatelessWidget {
               SizedBox(
                 width: 20.w,
               ),
-              CircleAvatar(),
+              const CircleAvatar(),
             ],
           ),
         )

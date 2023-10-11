@@ -57,14 +57,14 @@ class TimeTableWidget extends StatelessWidget {
 
               ),
               child: Container(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 // alignment: Alignment.center,
                 width: MediaQuery.of(context).size.width*0.7,
                 height: MediaQuery.of(context).size.height*0.13,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20.r),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.grey,
                         spreadRadius: -16,
@@ -83,7 +83,7 @@ class TimeTableWidget extends StatelessWidget {
                           color: barColor
                       ),
                     ),
-                    SizedBox(width: 10,),
+                    const SizedBox(width: 10,),
 
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,26 +96,26 @@ class TimeTableWidget extends StatelessWidget {
                         Row(
                           children: [Text(subtitle),
                             SizedBox(width: 8.w,),
-                            Icon(Icons.watch_later,size: 14,),
+                            const Icon(Icons.watch_later,size: 14,),
                             Text(time)
                           ],
                         ),
                         SizedBox(height: 18.h,),
                         Row(
                           children: [
-                            CircleAvatar(
+                            const CircleAvatar(
                               radius: 15,
                             ),
                             SizedBox(width: 2.w,),
-                            CircleAvatar(
+                          const  CircleAvatar(
                               radius: 15,
                             ),
                             SizedBox(width: 2.w,),
-                            CircleAvatar(
+                            const  CircleAvatar(
                               radius: 15,
                             ),
                             SizedBox(width: 2.w,),
-                            CircleAvatar(
+                            const  CircleAvatar(
                               radius: 15,
                             ),
                           ],
@@ -127,7 +127,6 @@ class TimeTableWidget extends StatelessWidget {
               ),
             ),
           )
-
         ],
       ),);
   }

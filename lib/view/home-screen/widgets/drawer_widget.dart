@@ -16,15 +16,15 @@ class DrawerWidget extends StatelessWidget {
         padding: const EdgeInsets.only(top: 50,left: 20,right: 20),
         child: ListView(
           children: [
-            drawerItems(txt: 'Dashboard', icon: Icon(Icons.dashboard)),
-            drawerItems(txt: 'Calender', icon: Icon(Icons.calendar_month_outlined)),
-            drawerItems(txt: 'Mail', icon: Icon(Icons.mail_outline)),
-            drawerItems(txt: 'Chat', icon: Icon(CupertinoIcons.chat_bubble)),
-            drawerItems(txt: 'Task', icon: Icon(Icons.task_alt)),
-            drawerItems(txt: 'Projects', icon: Icon(CupertinoIcons.bag_badge_minus)),
-            drawerItems(txt: 'File Manager', icon: Icon(Icons.file_copy_outlined)),
-            drawerItems(txt: 'Notes', icon: Icon(Icons.note)),
-            drawerItems(txt: 'Contacts', icon: Icon(Icons.contact_page)),
+            drawerItems(txt: 'Dashboard', icon: const Icon(Icons.dashboard)),
+            drawerItems(txt: 'Calender', icon: const Icon(Icons.calendar_month_outlined)),
+            drawerItems(txt: 'Mail', icon: const Icon(Icons.mail_outline)),
+            drawerItems(txt: 'Chat', icon: const Icon(CupertinoIcons.chat_bubble)),
+            drawerItems(txt: 'Task', icon: const Icon(Icons.task_alt)),
+            drawerItems(txt: 'Projects', icon: const Icon(CupertinoIcons.bag_badge_minus)),
+            drawerItems(txt: 'File Manager', icon: const Icon(Icons.file_copy_outlined)),
+            drawerItems(txt: 'Notes', icon: const Icon(Icons.note)),
+            drawerItems(txt: 'Contacts', icon: const Icon(Icons.contact_page)),
             SizedBox(height: 20.h,),
 
             Row(
@@ -34,10 +34,10 @@ class DrawerWidget extends StatelessWidget {
                   fontSize: 15.sp,
                   fontWeight: FontWeight.w600,
                 ),),
-                Icon(Icons.add),
+                const Icon(Icons.add),
               ],
             ),
-            SizedBox(height: 10,),
+             SizedBox(height: 10.h,),
             calenders(
               color: Colors.orange,
               txt: 'Important'
