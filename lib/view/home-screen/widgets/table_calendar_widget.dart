@@ -33,6 +33,13 @@ class TableCalendarWidget extends StatelessWidget {
           rangeEndDay: homeScreenController.rangeEnd,
           onRangeSelected: homeScreenController.onRangeSelected,
           rangeSelectionMode: RangeSelectionMode.toggledOn,
+          enabledDayPredicate: (day) {
+            /// means disable all the days jin kay bad focused day a rha
+            return
+              day.isAfter(homeScreenController.focusedDay ) &&
+                day.isBefore(homeScreenController.focusedDay.add(const Duration(days: 30)));
+          },
+
         );
       }),
     );
